@@ -46,7 +46,7 @@ pub struct WithPath<T> {
 }
 
 impl<T> WithPath<T> {
-    pub const fn new(inner: T, path: PathBuf) -> Self {
+    pub fn new(inner: T, path: PathBuf) -> Self {
         Self { inner, path }
     }
 

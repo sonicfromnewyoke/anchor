@@ -16,7 +16,7 @@ pub struct SystemAccount<'info> {
 }
 
 impl<'info> SystemAccount<'info> {
-    const fn new(info: &'info AccountInfo<'info>) -> SystemAccount<'info> {
+    fn new(info: &'info AccountInfo<'info>) -> SystemAccount<'info> {
         Self { info }
     }
 

@@ -75,7 +75,7 @@ use std::ops::Deref;
 #[derive(Clone)]
 pub struct Interface<'info, T>(Program<'info, T>);
 impl<'a, T> Interface<'a, T> {
-    pub(crate) const fn new(info: &'a AccountInfo<'a>) -> Self {
+    pub(crate) fn new(info: &'a AccountInfo<'a>) -> Self {
         Self(Program::new(info))
     }
     pub fn programdata_address(&self) -> Result<Option<Pubkey>> {

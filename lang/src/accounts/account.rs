@@ -245,7 +245,7 @@ impl<T: AccountSerialize + AccountDeserialize + Clone + fmt::Debug> Account<'_, 
 }
 
 impl<'a, T: AccountSerialize + AccountDeserialize + Clone> Account<'a, T> {
-    pub(crate) const fn new(info: &'a AccountInfo<'a>, account: T) -> Account<'a, T> {
+    pub(crate) fn new(info: &'a AccountInfo<'a>, account: T) -> Account<'a, T> {
         Self { info, account }
     }
 

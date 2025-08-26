@@ -54,7 +54,7 @@ impl<'a, 'b, 'c, 'info, T> Context<'a, 'b, 'c, 'info, T>
 where
     T: Bumps + Accounts<'info, T::Bumps>,
 {
-    pub const fn new(
+    pub fn new(
         program_id: &'a Pubkey,
         accounts: &'b mut T,
         remaining_accounts: &'c [AccountInfo<'info>],
@@ -182,7 +182,7 @@ impl<'a, 'b, 'c, 'info, T> CpiContext<'a, 'b, 'c, 'info, T>
 where
     T: ToAccountMetas + ToAccountInfos<'info>,
 {
-    pub const fn new(program: AccountInfo<'info>, accounts: T) -> Self {
+    pub fn new(program: AccountInfo<'info>, accounts: T) -> Self {
         Self {
             accounts,
             program,

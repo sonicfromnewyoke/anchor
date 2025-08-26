@@ -74,7 +74,7 @@ impl IdlAccount {
         Pubkey::create_with_seed(&program_signer, IdlAccount::seed(), program_id)
             .expect("Seed is always valid")
     }
-    pub fn seed() -> &'static str {
+    pub const fn seed() -> &'static str {
         "anchor:idl"
     }
 }

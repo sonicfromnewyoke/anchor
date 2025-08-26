@@ -114,7 +114,7 @@ pub mod solana_program {
     pub mod log {
         pub use solana_msg::{msg, sol_log};
         /// Print some slices as base64.
-        pub fn sol_log_data(data: &[&[u8]]) {
+        pub const fn sol_log_data(data: &[&[u8]]) {
             #[cfg(target_os = "solana")]
             unsafe {
                 solana_define_syscall::definitions::sol_log_data(

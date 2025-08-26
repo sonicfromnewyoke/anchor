@@ -9,7 +9,7 @@ pub struct BpfWriter<T> {
 }
 
 impl<T> BpfWriter<T> {
-    pub fn new(inner: T) -> Self {
+    pub const fn new(inner: T) -> Self {
         Self { inner, pos: 0 }
     }
 }

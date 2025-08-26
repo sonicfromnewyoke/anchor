@@ -145,7 +145,7 @@ impl<C: Clone + Deref<Target = impl Signer>> Client<C> {
         }
     }
 
-    pub fn new_with_options(cluster: Cluster, payer: C, options: CommitmentConfig) -> Self {
+    pub const fn new_with_options(cluster: Cluster, payer: C, options: CommitmentConfig) -> Self {
         Self {
             cfg: Config {
                 cluster,
@@ -246,12 +246,12 @@ impl<C: Deref<Target = impl Signer> + Clone> Program<C> {
         self.cfg.payer.pubkey()
     }
 
-    pub fn id(&self) -> Pubkey {
+    pub const fn id(&self) -> Pubkey {
         self.program_id
     }
 
     #[cfg(feature = "mock")]
-    pub fn internal_rpc(&self) -> &AsyncRpcClient {
+    pub const fn internal_rpc(&self) -> &AsyncRpcClient {
         &self.internal_rpc_client
     }
 
@@ -550,7 +550,7 @@ impl<C: Deref<Target = impl Signer> + Clone, S: AsSigner> RequestBuilder<'_, C, 
     }
 
     #[must_use]
-    pub fn program(mut self, program_id: Pubkey) -> Self {
+    pub const fn program(mut self, program_id: Pubkey) -> Self {
         self.program_id = program_id;
         self
     }
@@ -593,7 +593,7 @@ impl<C: Deref<Target = impl Signer> + Clone, S: AsSigner> RequestBuilder<'_, C, 
     }
 
     #[must_use]
-    pub fn options(mut self, options: CommitmentConfig) -> Self {
+    pub const fn options(mut self, options: CommitmentConfig) -> Self {
         self.options = options;
         self
     }

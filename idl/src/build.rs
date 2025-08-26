@@ -72,18 +72,18 @@ impl IdlBuilder {
     }
 
     /// Set whether to include account resolution information in the IDL (default: true).
-    pub fn resolution(mut self, resolution: bool) -> Self {
+    pub const fn resolution(mut self, resolution: bool) -> Self {
         self.resolution.replace(resolution);
         self
     }
     /// Set whether to skip linting (default: false).
-    pub fn skip_lint(mut self, skip_lint: bool) -> Self {
+    pub const fn skip_lint(mut self, skip_lint: bool) -> Self {
         self.skip_lint.replace(skip_lint);
         self
     }
 
     /// Set whether to skip generating docs in the IDL (default: false).
-    pub fn no_docs(mut self, no_docs: bool) -> Self {
+    pub const fn no_docs(mut self, no_docs: bool) -> Self {
         self.no_docs.replace(no_docs);
         self
     }

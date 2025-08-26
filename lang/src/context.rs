@@ -54,7 +54,7 @@ impl<'a, 'b, 'c, 'info, T> Context<'a, 'b, 'c, 'info, T>
 where
     T: Bumps + Accounts<'info, T::Bumps>,
 {
-    pub fn new(
+    pub const fn new(
         program_id: &'a Pubkey,
         accounts: &'b mut T,
         remaining_accounts: &'c [AccountInfo<'info>],
@@ -182,7 +182,7 @@ impl<'a, 'b, 'c, 'info, T> CpiContext<'a, 'b, 'c, 'info, T>
 where
     T: ToAccountMetas + ToAccountInfos<'info>,
 {
-    pub fn new(program: AccountInfo<'info>, accounts: T) -> Self {
+    pub const fn new(program: AccountInfo<'info>, accounts: T) -> Self {
         Self {
             accounts,
             program,
@@ -192,7 +192,7 @@ where
     }
 
     #[must_use]
-    pub fn new_with_signer(
+    pub const fn new_with_signer(
         program: AccountInfo<'info>,
         accounts: T,
         signer_seeds: &'a [&'b [&'c [u8]]],
@@ -206,7 +206,7 @@ where
     }
 
     #[must_use]
-    pub fn with_signer(mut self, signer_seeds: &'a [&'b [&'c [u8]]]) -> Self {
+    pub const fn with_signer(mut self, signer_seeds: &'a [&'b [&'c [u8]]]) -> Self {
         self.signer_seeds = signer_seeds;
         self
     }

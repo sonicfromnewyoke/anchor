@@ -174,7 +174,7 @@ impl<T: AccountSerialize + AccountDeserialize + Clone + fmt::Debug> fmt::Debug
 }
 
 impl<'a, T: AccountSerialize + AccountDeserialize + Clone> InterfaceAccount<'a, T> {
-    fn new(info: &'a AccountInfo<'a>, account: T) -> Self {
+    const fn new(info: &'a AccountInfo<'a>, account: T) -> Self {
         let owner = *info.owner;
         Self {
             account: Account::new(info, account),

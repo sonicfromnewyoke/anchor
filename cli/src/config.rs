@@ -46,11 +46,11 @@ pub struct WithPath<T> {
 }
 
 impl<T> WithPath<T> {
-    pub fn new(inner: T, path: PathBuf) -> Self {
+    pub const fn new(inner: T, path: PathBuf) -> Self {
         Self { inner, path }
     }
 
-    pub fn path(&self) -> &PathBuf {
+    pub const fn path(&self) -> &PathBuf {
         &self.path
     }
 
@@ -347,7 +347,7 @@ pub struct FeaturesConfig {
 }
 
 impl FeaturesConfig {
-    fn get_default_resolution() -> bool {
+    const fn get_default_resolution() -> bool {
         true
     }
 }
@@ -406,7 +406,7 @@ pub enum ProgramArch {
     Sbf,
 }
 impl ProgramArch {
-    pub fn build_subcommand(&self) -> &str {
+    pub const fn build_subcommand(&self) -> &str {
         match self {
             Self::Bpf => "build-bpf",
             Self::Sbf => "build-sbf",

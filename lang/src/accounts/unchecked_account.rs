@@ -15,7 +15,7 @@ use std::ops::Deref;
 pub struct UncheckedAccount<'info>(&'info AccountInfo<'info>);
 
 impl<'info> UncheckedAccount<'info> {
-    pub fn try_from(acc_info: &'info AccountInfo<'info>) -> Self {
+    pub const fn try_from(acc_info: &'info AccountInfo<'info>) -> Self {
         Self(acc_info)
     }
 }

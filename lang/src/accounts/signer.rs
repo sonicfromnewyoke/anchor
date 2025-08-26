@@ -40,7 +40,7 @@ pub struct Signer<'info> {
 }
 
 impl<'info> Signer<'info> {
-    fn new(info: &'info AccountInfo<'info>) -> Signer<'info> {
+    const fn new(info: &'info AccountInfo<'info>) -> Signer<'info> {
         Self { info }
     }
 

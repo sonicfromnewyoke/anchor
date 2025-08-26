@@ -293,7 +293,7 @@ main();
     )
 }
 
-pub fn deploy_script() -> &'static str {
+pub const fn deploy_script() -> &'static str {
     r#"// Migrations are an early feature. Currently, they're nothing more than this
 // single deploy script that's invoked from the CLI, injecting a provider
 // configured from the workspace's Anchor.toml.
@@ -309,7 +309,7 @@ module.exports = async function (provider) {
 "#
 }
 
-pub fn ts_deploy_script() -> &'static str {
+pub const fn ts_deploy_script() -> &'static str {
     r#"// Migrations are an early feature. Currently, they're nothing more than this
 // single deploy script that's invoked from the CLI, injecting a provider
 // configured from the workspace's Anchor.toml.
@@ -512,7 +512,7 @@ describe("{}", () => {{
     )
 }
 
-pub fn ts_config(jest: bool) -> &'static str {
+pub const fn ts_config(jest: bool) -> &'static str {
     if jest {
         r#"{
   "compilerOptions": {
@@ -540,7 +540,7 @@ pub fn ts_config(jest: bool) -> &'static str {
     }
 }
 
-pub fn git_ignore() -> &'static str {
+pub const fn git_ignore() -> &'static str {
     r#".anchor
 .DS_Store
 target
@@ -551,7 +551,7 @@ test-ledger
 "#
 }
 
-pub fn prettier_ignore() -> &'static str {
+pub const fn prettier_ignore() -> &'static str {
     r#".anchor
 .DS_Store
 target
